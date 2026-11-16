@@ -1,1 +1,2 @@
-CF Coach iPhone PWA v7.2 / Реалистичные иллюстрации и движение / 16.11.2026
+CF Coach v7.5 Mi Band 10 Health Import - 16.11.2026
+Manual Apple Health XML import (last 30 days), offline/local storage, dashboard of Xiaomi Mi Fitness metrics. Automatic HealthKit sync requires native iOS app.

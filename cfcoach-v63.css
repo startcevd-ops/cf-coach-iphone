@@ -93,3 +93,25 @@ html[data-theme="dark"] .v63-timer-presets button.active{background:#0b76f1;colo
 html[data-theme="dark"] .v72-media-controls>span{color:#bdd1e4}
 @media(max-width:350px){.v63-ex-row img{width:39%;min-width:110px;height:63px}.v63-ex-name{font-size:12px}}
 @media(min-width:620px){.v63-ex-row img{width:38%;max-width:225px;height:85px}.v72-detail-media img.v72-motion-anim{height:300px}}
+
+/* Mi Band 10 / Apple Health local import */
+.cf-mi-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin:12px 0;box-shadow:var(--shadow)}
+.cf-mi-section-title{font-size:15px;font-weight:850;margin-bottom:10px;color:var(--text)}
+.cf-mi-notice{padding:14px;background:#e8f2ff;border-radius:14px;color:#113d6f;font-size:13px;line-height:1.6;margin:10px 0}
+.cf-mi-notice b{display:block;margin-bottom:4px}
+.cf-mi-muted{color:var(--muted);font-size:12px;line-height:1.6;margin:7px 0}
+.cf-mi-warning{color:#8e4b00;font-size:12px;padding:10px;border-radius:10px;background:#fff2e0}
+.cf-mi-success{color:#107043;font-size:12px;font-weight:750}
+.cf-mi-picker{display:block;width:100%;text-align:center;cursor:pointer;border-radius:13px;background:var(--accent);color:#fff;padding:13px 8px;font-size:14px;font-weight:850;margin-top:15px}
+.cf-mi-status{font-size:12px;line-height:1.5;color:var(--muted);margin-top:12px}
+.cf-mi-metrics{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cf-mi-metrics>div{border:1px solid var(--line);border-radius:12px;background:var(--card2);padding:13px 10px;min-width:0}
+.cf-mi-metrics b{font-size:22px;display:block;overflow-wrap:anywhere;color:var(--text)}
+.cf-mi-metrics small{display:block;color:var(--muted);margin-top:4px;line-height:1.3}
+.cf-mi-history{display:flex;flex-direction:column;gap:0}
+.cf-mi-history-row{display:grid;grid-template-columns:54px 1fr 1fr 1fr;gap:4px;align-items:center;border-bottom:1px solid var(--line);padding:9px 1px;font-size:10px;color:var(--text)}
+.cf-mi-history-row span:not(:first-child){text-align:right}
+.cf-mi-delete{color:#bd3546;border:1px solid #fad5d9;border-radius:10px;background:transparent;padding:10px;font-weight:750;width:100%}
+html[data-theme="dark"] .cf-mi-notice{background:#1e334d;color:#d5e9ff}
+html[data-theme="dark"] .cf-mi-warning{background:#3b2f1b;color:#ffcd8e}
+html[data-theme="dark"] .cf-mi-success{color:#75e4a4}

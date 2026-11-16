@@ -1,0 +1,21 @@
+/* CF Coach offline cache. Increment on releases to refresh the offline app. */
+const CACHE='cf-coach-ios-v7.1-20261116';
+const ASSETS=["./", "./index.html", "./cfcoach-v63.css", "./cfcoach-v63.js", "./ios-compat.js", "./manifest.webmanifest", "./icon-192.png", "./icon-512.png", "./media/clean-tech.jpg", "./media/gym-bg.jpg", "./media/hero-lifter.jpg", "./media/program-foundation.jpg", "./media/program-performance.jpg", "./media/program-start.jpg", "./tech/back-squat.png", "./tech/bench-press.png", "./tech/box-step-over.png", "./tech/burpee-line.png", "./tech/dead-bug.png", "./tech/deadlift.png", "./tech/front-squat.png", "./tech/hollow-hold.png", "./tech/kb-swing.png", "./tech/power-clean.png", "./tech/pull-up.png", "./tech/rdl.png", "./tech/ring-row.png", "./tech/strict-press.png"];
+self.addEventListener('install',event=>{
+  event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(ASSETS)).then(()=>self.skipWaiting()));
+});
+self.addEventListener('activate',event=>{
+  event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key.startsWith('cf-coach-ios-')&&key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()));
+});
+self.addEventListener('fetch',event=>{
+  const req=event.request,url=new URL(req.url);
+  if(req.method!=='GET'||url.origin!==self.location.origin)return;
+  if(req.mode==='navigate'){
+    event.respondWith(fetch(req).then(res=>{
+      const clone=res.clone();caches.open(CACHE).then(cache=>cache.put('./index.html',clone));return res;
+    }).catch(()=>caches.match('./index.html')));return;
+  }
+  event.respondWith(caches.match(req).then(hit=>hit||fetch(req).then(res=>{
+    if(res.ok){const clone=res.clone();caches.open(CACHE).then(cache=>cache.put(req,clone));}return res;
+  })));
+});
